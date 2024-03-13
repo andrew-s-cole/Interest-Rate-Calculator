@@ -1,0 +1,53 @@
+START
+    // Function to print the column headers for the details report
+    Define printDetailsHeader:
+        Print "Year", "Year End Balance", "Year End Earned Interest"
+
+    // Function to print details of each year's investment
+    Define printDetails taking year, yearEndBalance, and interestEarned as parameters:
+        Print year, yearEndBalance, and interestEarned in a formatted manner
+
+    // Function to calculate year-end balance without monthly deposits
+    Define calculateBalanceWithoutMonthlyDeposit taking initialInvestment, interestRate, and numberOfYears as parameters:
+        Calculate monthly interest rate based on provided annual interest rate
+        Initialize variables for balance and interest earned
+        Loop through each year:
+            Calculate interest earned for this year
+            Loop through each month in the year:
+                Calculate interest earned for this month
+                Add interest earned to balance
+                Accumulate interest earned for the year
+            Print details for this year
+
+    // Function to calculate year-end balance with monthly deposits
+    Define balanceWithMonthlyDeposit taking initialInvestment, monthlyDeposit, interestRate, and numberOfYears as parameters:
+        Calculate monthly interest rate based on provided annual interest rate
+        Initialize variables for balance and interest earned
+        Loop through each year:
+            Loop through each month in the year:
+                Calculate interest earned for this month
+                Add interest earned to balance
+                Accumulate interest earned for the year
+                Add monthly deposit after interest calculation for all months except the last month
+            Add the monthly deposit for the last month
+            Print details for this year
+
+    // Main function
+    Define main:
+        Declare variables: initialInvestment, monthlyDeposit, annualInterestRate, numberOfYears
+        Prompt user for initial investment amount
+        Read initial investment amount from user
+        Prompt user for monthly deposit amount
+        Read monthly deposit amount from user
+        Prompt user for annual interest rate
+        Read annual interest rate from user
+        Prompt user for number of years
+        Read number of years from user
+        Print newline for better formatting
+        Print header for report without monthly deposit
+        Call calculateBalanceWithoutMonthlyDeposit function
+        Print newline for better formatting
+        Print header for report with monthly deposit
+        Call balanceWithMonthlyDeposit function
+        Return 0 to indicate successful execution
+END
